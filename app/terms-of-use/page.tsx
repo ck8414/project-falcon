@@ -9,7 +9,7 @@ export default function TermsOfUse() {
       <header className="py-6 px-6" style={{ background: "#142254" }}>
         <div className="max-w-[1280px] mx-auto">
           <Link href="/">
-            <Image src="/logos/gc-logo-dark.png" alt="G&C Capital Holdings" width={160} height={44} className="h-10 w-auto" />
+            <Image src="/logos/gc-logo-dark-only.svg" alt="G&C Capital Holdings" width={160} height={44} className="h-10 w-auto" />
           </Link>
         </div>
       </header>
