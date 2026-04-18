@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import ScrollReveal from "./ui/ScrollReveal";
 import { articles, categories } from "@/lib/articles";
 
@@ -25,13 +26,15 @@ export default function Insights() {
                 Perspectives on the Future<br className="hidden sm:block" /> of Healthcare Finance.
               </h2>
             </div>
-            <button
-              onClick={() => setActiveCategory("All")}
-              className="cursor-pointer flex items-center gap-1.5 whitespace-nowrap"
-              style={{ fontSize: "14px", color: "#C4973C", fontWeight: 600, letterSpacing: "0.04em" }}
+            <Link
+              href="/insights"
+              className="flex items-center gap-1.5 whitespace-nowrap"
+              style={{ fontSize: "14px", color: "#C4973C", fontWeight: 600, letterSpacing: "0.04em", textDecoration: "none" }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.75")}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
             >
               View All Insights &nbsp;→
-            </button>
+            </Link>
           </div>
         </ScrollReveal>
 
