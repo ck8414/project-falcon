@@ -6,7 +6,7 @@ export const metadata = { title: "Privacy Policy | G&C Capital Holdings" };
 export default function PrivacyPolicy() {
   return (
     <div style={{ background: "#F2F4F8", minHeight: "100vh" }}>
-      <header className="py-6 px-6" style={{ background: "#142254" }}>
+      <header className="py-6 px-6" style={{ background: "#0B1D51" }}>
         <div className="max-w-[1280px] mx-auto">
           <Link href="/">
             <Image src="/logos/gc-diamond-dark-only.svg" alt="G&C Capital Holdings" width={160} height={44} className="h-10 w-auto" />
@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
         </div>
       </header>
       <div className="max-w-3xl mx-auto px-6 py-20">
-        <h1 className="text-4xl font-bold mb-8" style={{ color: "#142254", fontFamily: "var(--font-playfair), Georgia, serif" }}>Privacy Policy</h1>
+        <h1 className="text-4xl font-bold mb-8" style={{ color: "#0B1D51", fontFamily: "var(--font-playfair), Georgia, serif" }}>Privacy Policy</h1>
         <p className="text-sm mb-6" style={{ color: "#6B7A99" }}>Last updated: January 1, 2026</p>
         <div className="space-y-6 text-base leading-relaxed" style={{ color: "#0D1A3A" }}>
           <p>G&amp;C Capital Holdings LLC (&quot;G&amp;C Capital,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) respects your privacy and is committed to protecting your personal information. This Privacy Policy describes how we collect, use, and share information when you visit our website.</p>

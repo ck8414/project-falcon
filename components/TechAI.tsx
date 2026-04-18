@@ -43,7 +43,7 @@ export default function TechAI() {
               from weeks to hours, reduce denial rates from industry averages of 27% to single digits, and unlock
               billions in previously unrealized reimbursement.
             </p>
-            <p className="font-semibold italic" style={{ color: "#142254" }}>
+            <p className="font-semibold italic" style={{ color: "#0B1D51" }}>
               AI is not a feature in RCM anymore. It is the foundation on which the next generation of revenue
               performance will be built.
             </p>
@@ -61,7 +61,7 @@ export default function TechAI() {
                 <div className="w-8 h-0.5 mb-4" style={{ background: "#C4973C" }} />
                 <h3
                   className="text-base font-bold mb-3"
-                  style={{ color: "#142254", fontFamily: "var(--font-playfair), Georgia, serif" }}
+                  style={{ color: "#0B1D51", fontFamily: "var(--font-playfair), Georgia, serif" }}
                 >
                   {uc.title}
                 </h3>
@@ -73,7 +73,7 @@ export default function TechAI() {
 
         {/* Velocity callout */}
         <ScrollReveal delay={0.1}>
-          <div className="rounded-lg p-8 md:p-12" style={{ background: "#142254" }}>
+          <div className="rounded-lg p-8 md:p-12" style={{ background: "#0B1D51" }}>
             <p className="text-xs uppercase tracking-[0.2em] font-semibold mb-4" style={{ color: "#C4973C" }}>
               THE VELOCITY ADVANTAGE
             </p>

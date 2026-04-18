@@ -56,7 +56,7 @@ export default function Insights() {
                 key={cat}
                 className="px-4 py-1.5 rounded-full text-xs font-medium cursor-default transition-colors"
                 style={{
-                  background: i === 0 ? "#142254" : "#fff",
+                  background: i === 0 ? "#0B1D51" : "#fff",
                   color: i === 0 ? "#fff" : "#6B7A99",
                   border: "1px solid #e8eaf0",
                 }}
@@ -80,7 +80,7 @@ export default function Insights() {
                   </span>
                   <h3
                     className="text-lg font-bold mb-3 leading-snug flex-1"
-                    style={{ color: "#142254", fontFamily: "var(--font-playfair), Georgia, serif" }}
+                    style={{ color: "#0B1D51", fontFamily: "var(--font-playfair), Georgia, serif" }}
                   >
                     {article.title}
                   </h3>

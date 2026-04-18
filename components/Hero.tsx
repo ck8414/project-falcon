@@ -14,8 +14,8 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center pt-[120px]"
-      style={{ background: "#142254" }}
+      className="relative min-h-screen flex flex-col justify-center pt-[200px]"
+      style={{ background: "#0B1D51" }}
     >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{

@@ -2,7 +2,7 @@ import ScrollReveal from "./ui/ScrollReveal";
 
 export default function Vision() {
   return (
-    <section id="vision" className="py-[60px] md:py-[120px]" style={{ background: "#142254" }}>
+    <section id="vision" className="py-[60px] md:py-[120px]" style={{ background: "#0B1D51" }}>
       <div className="max-w-[1280px] mx-auto px-6 text-center">
         <ScrollReveal>
           <p className="text-xs uppercase tracking-[0.2em] font-semibold mb-8" style={{ color: "#C4973C" }}>

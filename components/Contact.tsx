@@ -55,7 +55,7 @@ export default function Contact() {
           <div className="rounded-lg p-8 md:p-12 text-center" style={{ background: "#F5EDD6" }}>
             <p
               className="text-xl md:text-2xl font-bold"
-              style={{ color: "#142254", fontFamily: "var(--font-playfair), Georgia, serif" }}
+              style={{ color: "#0B1D51", fontFamily: "var(--font-playfair), Georgia, serif" }}
             >
               READY TO EXPLORE WHAT G&amp;C CAPITAL CAN DO FOR YOU?
             </p>
@@ -91,37 +91,37 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: "#142254" }}>Full Name *</label>
+                  <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: "#0B1D51" }}>Full Name *</label>
                   <input required name="name" value={form.name} onChange={handleChange} placeholder="Your Full Name" className={inputClass} style={inputStyle} />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: "#142254" }}>Title / Role *</label>
+                  <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: "#0B1D51" }}>Title / Role *</label>
                   <input required name="title" value={form.title} onChange={handleChange} placeholder="e.g., CEO, CFO, Revenue Cycle Director" className={inputClass} style={inputStyle} />
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: "#142254" }}>Organization *</label>
+                <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: "#0B1D51" }}>Organization *</label>
                 <input required name="organization" value={form.organization} onChange={handleChange} placeholder="Company / Health System Name" className={inputClass} style={inputStyle} />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: "#142254" }}>Email Address *</label>
+                  <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: "#0B1D51" }}>Email Address *</label>
                   <input required type="email" name="email" value={form.email} onChange={handleChange} placeholder="your@email.com" className={inputClass} style={inputStyle} />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: "#142254" }}>Phone Number</label>
+                  <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: "#0B1D51" }}>Phone Number</label>
                   <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="+1 (___) ___-____" className={inputClass} style={inputStyle} />
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: "#142254" }}>Inquiry Type *</label>
+                <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: "#0B1D51" }}>Inquiry Type *</label>
                 <select required name="inquiry" value={form.inquiry} onChange={handleChange} className={inputClass} style={inputStyle}>
                   <option value="">Select inquiry type...</option>
                   {inquiryTypes.map((t) => <option key={t} value={t}>{t}</option>)}
                 </select>
               </div>
               <div>
-                <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: "#142254" }}>Message</label>
+                <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wide" style={{ color: "#0B1D51" }}>Message</label>
                 <textarea name="message" value={form.message} onChange={handleChange} placeholder="Tell us a bit about your goals or how we can help..." rows={5} className={`${inputClass} resize-none`} style={inputStyle} />
               </div>
               <button
@@ -142,7 +142,7 @@ export default function Contact() {
 
           {/* Contact details */}
           <ScrollReveal delay={0.2} className="lg:col-span-2">
-            <div className="rounded-lg p-8 h-full" style={{ background: "#142254" }}>
+            <div className="rounded-lg p-8 h-full" style={{ background: "#0B1D51" }}>
               <p className="text-xs uppercase tracking-[0.2em] font-semibold mb-6" style={{ color: "#C4973C" }}>
                 G&amp;C CAPITAL HOLDINGS LLC
               </p>

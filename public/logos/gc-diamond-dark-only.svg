@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="740" height="266" viewBox="0 0 740 266" xmlns="http://www.w3.org/2000/svg">
 
-  <rect x="0" y="0" width="740" height="266" fill="#0B1D51"/>
+  <!-- No background rect — transparent so it blends with any navy surface -->
 
   <!-- Diamond mark centered at (118, 128) -->
-  <polygon points="118,28 218,128 118,228 18,128" fill="#121E50"/>
+  <polygon points="118,28 218,128 118,228 18,128" fill="rgba(0,0,0,0.18)"/>
   <polygon points="118,28 218,128 118,228 18,128" fill="none" stroke="#C9A84C" stroke-width="2.2"/>
   <polygon points="118,42 204,128 118,214 32,128" fill="none" stroke="#C9A84C" stroke-width="1.4"/>
   <polygon points="118,52 194,128 118,204 42,128" fill="none" stroke="#C9A84C" stroke-width="0.7" opacity="0.4"/>
@@ -16,7 +16,7 @@
     fill="#C9A84C" text-anchor="middle" dominant-baseline="central">GC</text>
 
   <!-- Vertical divider -->
-  <line x1="253" y1="40" x2="253" y2="216" stroke="#1A2D60" stroke-width="1.5"/>
+  <line x1="253" y1="40" x2="253" y2="216" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
 
   <!-- G&C wordmark -->
   <text x="280" y="150"

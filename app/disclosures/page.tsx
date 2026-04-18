@@ -6,7 +6,7 @@ export const metadata = { title: "Disclosures | G&C Capital Holdings" };
 export default function Disclosures() {
   return (
     <div style={{ background: "#F2F4F8", minHeight: "100vh" }}>
-      <header className="py-6 px-6" style={{ background: "#142254" }}>
+      <header className="py-6 px-6" style={{ background: "#0B1D51" }}>
         <div className="max-w-[1280px] mx-auto">
           <Link href="/">
             <Image src="/logos/gc-diamond-dark-only.svg" alt="G&C Capital Holdings" width={160} height={44} className="h-10 w-auto" />
@@ -14,7 +14,7 @@ export default function Disclosures() {
         </div>
       </header>
       <div className="max-w-3xl mx-auto px-6 py-20">
-        <h1 className="text-4xl font-bold mb-8" style={{ color: "#142254", fontFamily: "var(--font-playfair), Georgia, serif" }}>Regulatory Disclosures</h1>
+        <h1 className="text-4xl font-bold mb-8" style={{ color: "#0B1D51", fontFamily: "var(--font-playfair), Georgia, serif" }}>Regulatory Disclosures</h1>
         <p className="text-sm mb-6" style={{ color: "#6B7A99" }}>Last updated: January 1, 2026</p>
         <div className="space-y-6 text-base leading-relaxed" style={{ color: "#0D1A3A" }}>
           <p>G&amp;C Capital Holdings LLC is an investment and advisory firm. Nothing on this website constitutes investment advice or an offer to sell or solicitation to buy any security.</p>

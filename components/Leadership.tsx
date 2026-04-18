@@ -49,13 +49,13 @@ export default function Leadership() {
                 {/* Avatar placeholder */}
                 <div
                   className="w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold mb-6"
-                  style={{ background: "#142254", color: "#C4973C", fontFamily: "var(--font-playfair), Georgia, serif" }}
+                  style={{ background: "#0B1D51", color: "#C4973C", fontFamily: "var(--font-playfair), Georgia, serif" }}
                 >
                   {leader.name.split(" ").map((n) => n[0]).join("")}
                 </div>
                 <h3
                   className="text-xl font-bold mb-1"
-                  style={{ color: "#142254", fontFamily: "var(--font-playfair), Georgia, serif" }}
+                  style={{ color: "#0B1D51", fontFamily: "var(--font-playfair), Georgia, serif" }}
                 >
                   {leader.name}
                 </h3>
@@ -67,7 +67,7 @@ export default function Leadership() {
                 </p>
                 <button
                   className="inline-flex items-center gap-2 text-xs font-semibold cursor-pointer"
-                  style={{ color: "#142254" }}
+                  style={{ color: "#0B1D51" }}
                 >
                   <ExternalLink size={14} /> Connect on LinkedIn
                 </button>

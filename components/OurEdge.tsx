@@ -36,7 +36,7 @@ const advantages = [
 
 export default function OurEdge() {
   return (
-    <section id="our-edge" className="py-[60px] md:py-[120px]" style={{ background: "#142254" }}>
+    <section id="our-edge" className="py-[60px] md:py-[120px]" style={{ background: "#0B1D51" }}>
       <div className="max-w-[1280px] mx-auto px-6">
         <ScrollReveal>
           <SectionLabel>OUR DIFFERENTIATION</SectionLabel>
@@ -97,7 +97,7 @@ export default function OurEdge() {
             </p>
             <p
               className="text-xl md:text-2xl font-semibold max-w-3xl mx-auto leading-relaxed"
-              style={{ color: "#142254", fontFamily: "var(--font-playfair), Georgia, serif" }}
+              style={{ color: "#0B1D51", fontFamily: "var(--font-playfair), Georgia, serif" }}
             >
               We are not tourists in healthcare finance. We are residents — with the expertise, relationships, and
               conviction to identify and support the companies that will define the future of Revenue Cycle Management.

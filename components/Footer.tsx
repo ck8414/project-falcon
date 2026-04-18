@@ -16,7 +16,7 @@ function scrollTo(href: string) {
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#142254" }}>
+    <footer style={{ background: "#0B1D51" }}>
       <div className="max-w-[1280px] mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
           {/* Brand */}

@@ -36,7 +36,7 @@ export default function About() {
 
         {/* Mission card */}
         <ScrollReveal delay={0.2}>
-          <div className="rounded-lg p-8 md:p-10 mb-14" style={{ background: "#142254" }}>
+          <div className="rounded-lg p-8 md:p-10 mb-14" style={{ background: "#0B1D51" }}>
             <p className="text-xs uppercase tracking-[0.2em] font-semibold mb-4" style={{ color: "#C4973C" }}>
               OUR MISSION
             </p>
@@ -80,7 +80,7 @@ export default function About() {
               >
                 <h3
                   className="text-lg font-bold mb-3"
-                  style={{ color: "#142254", fontFamily: "var(--font-playfair), Georgia, serif" }}
+                  style={{ color: "#0B1D51", fontFamily: "var(--font-playfair), Georgia, serif" }}
                 >
                   {v.title}
                 </h3>

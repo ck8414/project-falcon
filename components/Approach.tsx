@@ -44,7 +44,7 @@ export default function Approach() {
                 <div className="text-3xl mb-4" style={{ color: "#C4973C" }}>{step.num}</div>
                 <h3
                   className="text-lg font-bold mb-3"
-                  style={{ color: "#142254", fontFamily: "var(--font-playfair), Georgia, serif" }}
+                  style={{ color: "#0B1D51", fontFamily: "var(--font-playfair), Georgia, serif" }}
                 >
                   {step.title}
                 </h3>
@@ -58,7 +58,7 @@ export default function Approach() {
           <div className="border-l-4 pl-6 max-w-2xl" style={{ borderColor: "#C4973C" }}>
             <p
               className="text-lg md:text-xl italic"
-              style={{ color: "#142254", fontFamily: "var(--font-playfair), Georgia, serif" }}
+              style={{ color: "#0B1D51", fontFamily: "var(--font-playfair), Georgia, serif" }}
             >
               &ldquo;Great companies in RCM are built on operational truth, not financial engineering. Our job is to find
               them early and help them win.&rdquo;

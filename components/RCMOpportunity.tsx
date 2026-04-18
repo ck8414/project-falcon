@@ -31,7 +31,7 @@ const whyNow = [
 
 export default function RCMOpportunity() {
   return (
-    <section id="rcm-opportunity" className="py-[60px] md:py-[120px]" style={{ background: "#142254" }}>
+    <section id="rcm-opportunity" className="py-[60px] md:py-[120px]" style={{ background: "#0B1D51" }}>
       <div className="max-w-[1280px] mx-auto px-6">
         <ScrollReveal>
           <SectionLabel>THE RCM LANDSCAPE</SectionLabel>

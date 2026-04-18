@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
+const NAV_BG = "#0B1D51";
+
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "The RCM Opportunity", href: "#rcm-opportunity" },
@@ -24,8 +26,7 @@ export default function Navbar() {
 
   const handleNav = (href: string) => {
     setOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -33,14 +34,21 @@ export default function Navbar() {
       <nav
         className="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300"
         style={{
-          background: "#142254",
-          height: "120px",
-          boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.25)" : "none",
+          background: NAV_BG,
+          height: "200px",
+          boxShadow: scrolled ? "0 2px 24px rgba(0,0,0,0.3)" : "none",
         }}
       >
         <div className="max-w-[1280px] mx-auto px-6 h-full flex items-center justify-between">
           <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
-            <Image src="/logos/gc-diamond-dark-only.svg" alt="G&C Capital Holdings" width={360} height={164} className="h-[100px] w-auto object-contain" priority />
+            <Image
+              src="/logos/gc-diamond-dark-only.svg"
+              alt="G&C Capital Holdings"
+              width={560}
+              height={200}
+              className="h-[180px] w-auto object-contain"
+              priority
+            />
           </a>
 
           {/* Desktop nav */}
@@ -82,10 +90,16 @@ export default function Navbar() {
       {/* Mobile overlay */}
       <div
         className={`fixed inset-0 z-50 flex flex-col transition-all duration-300 lg:hidden ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
-        style={{ background: "#142254" }}
+        style={{ background: NAV_BG }}
       >
         <div className="flex items-center justify-between px-6 h-[80px]">
-          <Image src="/logos/gc-diamond-dark-only.svg" alt="G&C Capital Holdings" width={260} height={119} className="h-[60px] w-auto object-contain" />
+          <Image
+            src="/logos/gc-diamond-dark-only.svg"
+            alt="G&C Capital Holdings"
+            width={260}
+            height={94}
+            className="h-[70px] w-auto object-contain"
+          />
           <button onClick={() => setOpen(false)} className="text-white p-2" aria-label="Close menu">
             <X size={24} />
           </button>
