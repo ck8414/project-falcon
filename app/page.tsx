@@ -11,6 +11,10 @@ import Vision from "@/components/Vision";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
+function Divider() {
+  return <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg, transparent, #D4C08A, transparent)" }} />;
+}
+
 export default function Home() {
   return (
     <>
@@ -18,13 +22,21 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <Divider />
         <RCMOpportunity />
+        <Divider />
         <TechAI />
+        <Divider />
         <OurEdge />
+        <Divider />
         <Approach />
+        <Divider />
         <Insights />
+        <Divider />
         <Leadership />
+        <Divider />
         <Vision />
+        <Divider />
         <Contact />
       </main>
       <Footer />

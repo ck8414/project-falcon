@@ -1,9 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { Menu, X } from "lucide-react";
-
-const NAV_BG = "#0B1D51";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -14,12 +11,32 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+function LogoMark({ dark = false }: { dark?: boolean }) {
+  return (
+    <div className="inline-flex items-center gap-4 cursor-pointer">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="22" y="2" width="28" height="28" rx="2" transform="rotate(45 22 2)" fill="#142254" stroke="#C4973C" strokeWidth="1.5"/>
+        <rect x="22" y="7" width="20" height="20" rx="1" transform="rotate(45 22 7)" fill="none" stroke="#C4973C" strokeWidth="0.75" opacity="0.5"/>
+        <text x="22" y="27" textAnchor="middle" fontFamily="Playfair Display, Georgia, serif" fontSize="11" fontWeight="800" fill="#C4973C">GC</text>
+      </svg>
+      <div className="flex flex-col leading-none">
+        <span className="font-bold tracking-wide" style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontSize: "18px", fontWeight: 800, color: dark ? "#142254" : "#fff", letterSpacing: "0.02em" }}>
+          G<span style={{ color: "#C4973C" }}>&amp;</span>C CAPITAL
+        </span>
+        <span className="font-medium uppercase" style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "9px", letterSpacing: "0.22em", color: "#9AAAC8", marginTop: "3px" }}>
+          Holdings LLC
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -32,35 +49,32 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300"
+        className="fixed top-0 left-0 right-0 z-50 flex items-center"
         style={{
-          background: NAV_BG,
+          background: "#142254",
           height: "80px",
-          boxShadow: scrolled ? "0 2px 24px rgba(0,0,0,0.3)" : "none",
+          borderBottom: "1px solid rgba(196,151,60,0.25)",
+          boxShadow: scrolled ? "0 4px 32px rgba(0,0,0,0.5)" : "0 2px 24px rgba(13,26,58,0.4)",
+          transition: "box-shadow 0.3s",
         }}
       >
-        <div className="max-w-[1280px] mx-auto px-6 h-full flex items-center justify-between">
-          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
-            <Image
-              src="/logos/gc-diamond-dark-only.svg"
-              alt="G&C Capital Holdings"
-              width={240}
-              height={86}
-              className="h-[60px] w-auto object-contain"
-              priority
-            />
-          </a>
+        <div className="w-full max-w-[1200px] mx-auto px-12 flex items-center justify-between">
+          <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="cursor-pointer">
+            <LogoMark />
+          </button>
 
-          {/* Desktop nav */}
-          <ul className="hidden lg:flex items-center gap-7">
+          <ul className="hidden lg:flex items-center gap-9 list-none">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <button
                   onClick={() => handleNav(link.href)}
-                  className="text-sm text-white/80 hover:text-white relative group transition-colors duration-200 cursor-pointer"
+                  className="relative pb-1 cursor-pointer group"
+                  style={{ fontFamily: "var(--font-inter)", fontSize: "13px", fontWeight: 500, color: "#9AAAC8", letterSpacing: "0.04em" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#9AAAC8")}
                 >
                   {link.label}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#C4973C] transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute bottom-0 left-0 w-0 h-px transition-all duration-300 group-hover:w-full" style={{ background: "#C4973C" }} />
                 </button>
               </li>
             ))}
@@ -68,20 +82,15 @@ export default function Navbar() {
 
           <button
             onClick={() => handleNav("#contact")}
-            className="hidden lg:block text-sm font-semibold px-5 py-2.5 rounded transition-all duration-200 cursor-pointer"
-            style={{ background: "#C4973C", color: "#fff" }}
+            className="hidden lg:block cursor-pointer"
+            style={{ background: "#C4973C", color: "#fff", fontFamily: "var(--font-inter)", fontSize: "13px", fontWeight: 700, letterSpacing: "0.06em", padding: "10px 24px", borderRadius: "3px", whiteSpace: "nowrap" }}
             onMouseEnter={(e) => (e.currentTarget.style.background = "#A8812E")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "#C4973C")}
           >
             Connect With Us
           </button>
 
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setOpen(true)}
-            className="lg:hidden text-white p-2"
-            aria-label="Open menu"
-          >
+          <button onClick={() => setOpen(true)} className="lg:hidden text-white p-2" aria-label="Open menu">
             <Menu size={24} />
           </button>
         </div>
@@ -89,38 +98,23 @@ export default function Navbar() {
 
       {/* Mobile overlay */}
       <div
-        className={`fixed inset-0 z-50 flex flex-col transition-all duration-300 lg:hidden ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
-        style={{ background: NAV_BG }}
+        className={`fixed inset-0 z-50 flex flex-col lg:hidden transition-all duration-300 ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        style={{ background: "#142254" }}
       >
         <div className="flex items-center justify-between px-6 h-[80px]">
-          <Image
-            src="/logos/gc-diamond-dark-only.svg"
-            alt="G&C Capital Holdings"
-            width={260}
-            height={94}
-            className="h-[70px] w-auto object-contain"
-          />
-          <button onClick={() => setOpen(false)} className="text-white p-2" aria-label="Close menu">
-            <X size={24} />
-          </button>
+          <LogoMark />
+          <button onClick={() => setOpen(false)} className="text-white p-2"><X size={24} /></button>
         </div>
-        <ul className="flex flex-col items-center justify-center flex-1 gap-8">
+        <ul className="flex flex-col items-center justify-center flex-1 gap-8 list-none">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <button
-                onClick={() => handleNav(link.href)}
-                className="text-xl text-white font-medium tracking-wide cursor-pointer"
-              >
+              <button onClick={() => handleNav(link.href)} className="text-xl text-white font-medium cursor-pointer">
                 {link.label}
               </button>
             </li>
           ))}
           <li>
-            <button
-              onClick={() => handleNav("#contact")}
-              className="mt-4 text-sm font-semibold px-8 py-3 rounded cursor-pointer"
-              style={{ background: "#C4973C", color: "#fff" }}
-            >
+            <button onClick={() => handleNav("#contact")} className="mt-4 text-sm font-bold px-8 py-3 rounded cursor-pointer" style={{ background: "#C4973C", color: "#fff" }}>
               Connect With Us
             </button>
           </li>

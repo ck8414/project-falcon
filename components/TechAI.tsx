@@ -1,94 +1,67 @@
+"use client";
 import ScrollReveal from "./ui/ScrollReveal";
-import SectionLabel from "./ui/SectionLabel";
 
-const useCases = [
-  { title: "Autonomous Coding", body: "AI-powered medical coding engines that read clinical notes, apply appropriate ICD-10/CPT codes, and flag risk areas with greater accuracy than human coders — at 100× the speed." },
-  { title: "Predictive Denial Prevention", body: "Machine learning models trained on millions of historical claims identify high-risk submissions before they are filed, enabling proactive correction and dramatically reducing denial rates." },
-  { title: "Intelligent Prior Auth", body: "NLP-driven systems that auto-generate and submit prior authorization requests, monitor payer portals in real time, and flag urgency — reducing approval timelines from days to hours." },
-  { title: "RPA & Workflow Automation", body: "Robotic Process Automation handles repetitive, rules-based tasks like eligibility verification, claim status checks, and ERA posting — freeing human talent for judgment-intensive work." },
-  { title: "Conversational Patient Billing", body: "AI-powered patient communication tools that intelligently handle billing inquiries, payment plan negotiations, and balance resolution via chat, text, and voice." },
-  { title: "Revenue Integrity Analytics", body: "Advanced analytics platforms that continuously monitor charge capture, contractual adjustments, payer performance, and clinical documentation gaps — providing CFOs with real-time revenue intelligence." },
-  { title: "NLP for Clinical Documentation", body: "Natural Language Processing engines that extract structured billing data from unstructured clinical narratives — closing the documentation gap that costs providers billions annually in undercoded encounters." },
-  { title: "Payer Contract Intelligence", body: "AI systems that model, monitor, and audit payer contracts against actual reimbursements — ensuring providers collect every dollar they are contractually entitled to." },
-  { title: "Interoperability Platforms", body: "Next-generation integration layers that connect EHRs, practice management systems, clearinghouses, and payer portals into a unified, real-time data environment." },
+const aiCards = [
+  { icon: "⚡", title: "Autonomous Coding", desc: "AI-powered medical coding engines that read clinical notes and apply accurate ICD-10/CPT codes at 100× the speed of human coders." },
+  { icon: "🔮", title: "Predictive Denial Prevention", desc: "Machine learning models trained on millions of historical claims identify high-risk submissions before they are filed — reducing denial rates to single digits." },
+  { icon: "⚙️", title: "Intelligent Prior Auth", desc: "NLP-driven systems that auto-generate and submit prior authorization requests, reducing approval timelines from days to hours." },
+  { icon: "🤖", title: "RPA & Workflow Automation", desc: "Robotic Process Automation handles eligibility verification, claim status checks, and ERA posting — freeing human talent for judgment-intensive work." },
+  { icon: "💬", title: "Conversational Patient Billing", desc: "AI-powered tools that handle billing inquiries, payment plans, and balance resolution via chat and voice — improving collections and satisfaction simultaneously." },
+  { icon: "📊", title: "Revenue Integrity Analytics", desc: "Platforms that continuously monitor charge capture, contractual adjustments, and payer performance — providing real-time revenue intelligence to CFOs." },
+  { icon: "🧠", title: "NLP for Clinical Documentation", desc: "Natural Language Processing engines that extract structured billing data from unstructured clinical narratives — closing the documentation gap costing providers billions." },
+  { icon: "📋", title: "Payer Contract Intelligence", desc: "AI systems that model, monitor, and audit payer contracts against actual reimbursements — ensuring providers collect every dollar they are contractually entitled to." },
+  { icon: "🔗", title: "Interoperability Platforms", desc: "Next-generation integration layers connecting EHRs, practice management systems, clearinghouses, and payer portals into a unified, real-time data environment." },
 ];
 
 export default function TechAI() {
   return (
-    <section id="ai-rcm" className="py-[60px] md:py-[120px]" style={{ background: "#F2F4F8" }}>
-      <div className="max-w-[1280px] mx-auto px-6">
+    <section id="ai-rcm" style={{ background: "#F2F4F8", padding: "100px 0" }}>
+      <div className="max-w-[1200px] mx-auto px-12">
         <ScrollReveal>
-          <SectionLabel>THE INTELLIGENCE REVOLUTION</SectionLabel>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.1}>
-          <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold max-w-3xl mb-10 leading-tight"
-            style={{ color: "#0D1A3A", fontFamily: "var(--font-playfair), Georgia, serif" }}
-          >
-            Artificial Intelligence Is Rewriting the Rules of Revenue Cycle Management.
-          </h2>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.15}>
-          <div className="max-w-3xl mb-14 space-y-5 text-base md:text-lg leading-relaxed" style={{ color: "#0D1A3A" }}>
-            <p>
-              For decades, RCM was defined by manual labor, institutional knowledge, and legacy software. The processes
-              were slow, error-prone, and expensive. Then came the convergence of large language models, robotic process
-              automation, predictive analytics, and cloud-native infrastructure — and the RCM landscape began to
-              fundamentally shift.
-            </p>
-            <p>
-              We are now in the early innings of an AI-powered transformation that will compress revenue cycle timelines
-              from weeks to hours, reduce denial rates from industry averages of 27% to single digits, and unlock
-              billions in previously unrealized reimbursement.
-            </p>
-            <p className="font-semibold italic" style={{ color: "#0B1D51" }}>
-              AI is not a feature in RCM anymore. It is the foundation on which the next generation of revenue
-              performance will be built.
+          <div className="text-center max-w-[760px] mx-auto mb-14">
+            <div className="flex items-center justify-center gap-2 mb-5" style={{ fontFamily: "var(--font-inter)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#C4973C" }}>
+              <span style={{ fontSize: "8px" }}>◆</span> The Intelligence Revolution <span style={{ fontSize: "8px" }}>◆</span>
+            </div>
+            <h2 className="font-bold mb-6" style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontSize: "clamp(30px, 3.5vw, 46px)", fontWeight: 800, color: "#142254", lineHeight: 1.15, letterSpacing: "-0.02em" }}>
+              Artificial Intelligence Is Rewriting the Rules of Revenue Cycle Management.
+            </h2>
+            <p style={{ fontSize: "16px", color: "#2D3748", lineHeight: 1.8 }}>
+              For decades, RCM was defined by manual labor, institutional knowledge, and legacy software. The processes were slow, error-prone, and expensive. Then came the convergence of large language models, robotic process automation, predictive analytics, and cloud-native infrastructure — and the RCM landscape began to fundamentally shift.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* 9 use case cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-          {useCases.map((uc, i) => (
-            <ScrollReveal key={uc.title} delay={0.05 * (i % 3)}>
+        <ScrollReveal delay={0.1}>
+          <div className="relative rounded-lg overflow-hidden mb-14" style={{ background: "#142254", padding: "36px 48px" }}>
+            <div className="absolute left-0 top-0 bottom-0 w-[5px]" style={{ background: "#C4973C" }} />
+            <p style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontSize: "22px", fontStyle: "italic", color: "#fff", lineHeight: 1.55, paddingLeft: "20px" }}>
+              &ldquo;AI is not a feature in RCM anymore. It is the foundation on which the next generation of revenue performance will be built.&rdquo;
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
+          {aiCards.map((c, i) => (
+            <ScrollReveal key={c.title} delay={0.04 * (i % 3)}>
               <div
-                className="p-6 rounded-lg h-full transition-transform duration-300 hover:-translate-y-1"
-                style={{ background: "#fff", border: "1px solid #e8eaf0" }}
+                className="rounded-lg h-full"
+                style={{ background: "#fff", padding: "28px 24px", boxShadow: "0 2px 16px rgba(20,34,84,0.06)", borderTop: "3px solid #C4973C", transition: "all 0.25s" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 32px rgba(20,34,84,0.12)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "none"; (e.currentTarget as HTMLElement).style.boxShadow = "0 2px 16px rgba(20,34,84,0.06)"; }}
               >
-                <div className="w-8 h-0.5 mb-4" style={{ background: "#C4973C" }} />
-                <h3
-                  className="text-base font-bold mb-3"
-                  style={{ color: "#0B1D51", fontFamily: "var(--font-playfair), Georgia, serif" }}
-                >
-                  {uc.title}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#6B7A99" }}>{uc.body}</p>
+                <div className="rounded-lg flex items-center justify-center mb-4" style={{ width: "42px", height: "42px", background: "#142254", fontSize: "18px" }}>{c.icon}</div>
+                <div className="font-bold mb-2" style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontSize: "16px", color: "#142254" }}>{c.title}</div>
+                <p style={{ fontSize: "13px", color: "#6B7A99", lineHeight: 1.65 }}>{c.desc}</p>
               </div>
             </ScrollReveal>
           ))}
         </div>
 
-        {/* Velocity callout */}
         <ScrollReveal delay={0.1}>
-          <div className="rounded-lg p-8 md:p-12" style={{ background: "#0B1D51" }}>
-            <p className="text-xs uppercase tracking-[0.2em] font-semibold mb-4" style={{ color: "#C4973C" }}>
-              THE VELOCITY ADVANTAGE
-            </p>
-            <h3
-              className="text-2xl md:text-3xl font-bold mb-5 text-white"
-              style={{ fontFamily: "var(--font-playfair), Georgia, serif" }}
-            >
-              FROM REACTIVE TO PREDICTIVE
-            </h3>
-            <p className="text-base md:text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.78)" }}>
-              Traditional RCM is reactive — claims are filed, denials arrive weeks later, and billing teams scramble to
-              recover lost revenue. AI-enabled RCM is predictive and preventive. It identifies risk before the claim
-              leaves the building, optimizes the submission in real time, and closes the revenue loop in days rather than
-              weeks. The organizations that adopt this model will gain a structural, sustainable competitive advantage in
-              healthcare finance — and G&amp;C Capital is positioned to back them at the frontier.
+          <div className="rounded-b-md" style={{ background: "#F5EDD6", borderTop: "4px solid #C4973C", padding: "32px 36px" }}>
+            <div style={{ fontFamily: "var(--font-inter)", fontSize: "10px", fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase", color: "#142254", marginBottom: "12px" }}>From Reactive to Predictive</div>
+            <p style={{ fontSize: "15px", color: "#0D1A3A", lineHeight: 1.78 }}>
+              Traditional RCM is reactive — claims are filed, denials arrive weeks later, and billing teams scramble to recover lost revenue. AI-enabled RCM is predictive and preventive. It identifies risk before the claim leaves the building, optimizes the submission in real time, and closes the revenue loop in days rather than weeks. The organizations that adopt this model will gain a structural, sustainable competitive advantage in healthcare finance — and G&amp;C Capital is positioned to back them at the frontier.
             </p>
           </div>
         </ScrollReveal>
