@@ -1,5 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 
 const stats = [
   { value: "$240B+", label: "U.S. RCM Market Size by 2026" },
@@ -7,6 +8,42 @@ const stats = [
   { value: "3–5×", label: "AI Efficiency Multiplier in RCM" },
   { value: "27%", label: "Average Industry Claim Denial Rate" },
 ];
+
+function AnimatedStatValue({ value }: { value: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-40px" });
+  const [displayed, setDisplayed] = useState("0");
+
+  useEffect(() => {
+    if (!isInView) return;
+    const numericMatch = value.match(/[\d.]+/);
+    if (!numericMatch) { setDisplayed(value); return; }
+    const numeric = parseFloat(numericMatch[0]);
+    const isDecimal = numeric % 1 !== 0;
+    const prefix = value.slice(0, value.indexOf(numericMatch[0]));
+    const suffix = value.slice(value.indexOf(numericMatch[0]) + numericMatch[0].length);
+    const duration = 1800;
+    const steps = 60;
+    const increment = numeric / steps;
+    let current = 0;
+    const interval = setInterval(() => {
+      current += increment;
+      if (current >= numeric) {
+        setDisplayed(`${prefix}${isDecimal ? numeric.toFixed(1) : numeric}${suffix}`);
+        clearInterval(interval);
+      } else {
+        setDisplayed(`${prefix}${isDecimal ? current.toFixed(1) : Math.floor(current)}${suffix}`);
+      }
+    }, duration / steps);
+    return () => clearInterval(interval);
+  }, [isInView, value]);
+
+  return (
+    <div ref={ref} style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontSize: "36px", fontWeight: 800, color: "#C4973C", lineHeight: 1, marginBottom: "8px" }}>
+      {displayed || value}
+    </div>
+  );
+}
 
 export default function Hero() {
   const scrollTo = (href: string) => document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
@@ -96,12 +133,12 @@ export default function Hero() {
       {/* Stats bar */}
       <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.9 }}
-        className="relative flex"
+        className="relative flex flex-wrap"
         style={{ background: "rgba(8,15,34,0.7)", backdropFilter: "blur(10px)", borderTop: "1px solid rgba(196,151,60,0.2)" }}
       >
         {stats.map((s, i) => (
-          <div key={s.label} className="flex-1 text-center" style={{ padding: "28px 40px", borderRight: i < stats.length - 1 ? "1px solid rgba(196,151,60,0.15)" : "none" }}>
-            <div style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontSize: "36px", fontWeight: 800, color: "#C4973C", lineHeight: 1, marginBottom: "8px" }}>{s.value}</div>
+          <div key={s.label} className="flex-1 text-center" style={{ padding: "28px 40px", borderRight: i < stats.length - 1 ? "1px solid rgba(196,151,60,0.15)" : "none", minWidth: "140px" }}>
+            <AnimatedStatValue value={s.value} />
             <div style={{ fontSize: "12px", color: "#9AAAC8", letterSpacing: "0.06em", fontWeight: 500, lineHeight: 1.4 }}>{s.label}</div>
           </div>
         ))}

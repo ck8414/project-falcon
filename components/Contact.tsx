@@ -4,7 +4,7 @@ import ScrollReveal from "./ui/ScrollReveal";
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle"|"sending"|"sent"|"error">("idle");
-  const [form, setForm] = useState({ name:"", title:"", org:"", email:"", inquiry:"", message:"" });
+  const [form, setForm] = useState({ name:"", title:"", org:"", email:"", phone:"", inquiry:"", message:"" });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) =>
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -13,13 +13,12 @@ export default function Contact() {
     e.preventDefault();
     setStatus("sending");
     try {
-      const id = process.env.NEXT_PUBLIC_FORMSPREE_ID || "xpwzgkne";
-      const res = await fetch(`https://formspree.io/f/${id}`, {
-        method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+      const res = await fetch("/api/contact", {
+        method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
       setStatus(res.ok ? "sent" : "error");
-      if (res.ok) setForm({ name:"", title:"", org:"", email:"", inquiry:"", message:"" });
+      if (res.ok) setForm({ name:"", title:"", org:"", email:"", phone:"", inquiry:"", message:"" });
     } catch { setStatus("error"); }
   };
 
@@ -73,6 +72,10 @@ export default function Contact() {
                 </div>
               </div>
               <div className="flex flex-col gap-2">
+                <label style={{ fontSize: "12px", fontWeight: 700, color: "#142254", letterSpacing: "0.06em", textTransform: "uppercase" }}>Phone (Optional)</label>
+                <input name="phone" value={form.phone} onChange={handleChange} placeholder="+1 (___) ___-____" style={inp} onFocus={(e) => (e.target.style.borderColor = "#C4973C")} onBlur={(e) => (e.target.style.borderColor = "#DDE2EF")} />
+              </div>
+              <div className="flex flex-col gap-2">
                 <label style={{ fontSize: "12px", fontWeight: 700, color: "#142254", letterSpacing: "0.06em", textTransform: "uppercase" }}>Inquiry Type *</label>
                 <select required name="inquiry" value={form.inquiry} onChange={handleChange} style={inp} onFocus={(e) => (e.target.style.borderColor = "#C4973C")} onBlur={(e) => (e.target.style.borderColor = "#DDE2EF")}>
                   <option value="">Select an inquiry type...</option>
@@ -90,8 +93,15 @@ export default function Contact() {
                 onMouseEnter={(e) => { (e.currentTarget.style.background = "#A8812E"); (e.currentTarget.style as CSSStyleDeclaration & {transform:string}).transform = "translateY(-1px)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = "#C4973C"; (e.currentTarget.style as CSSStyleDeclaration & {transform:string}).transform = "none"; }}
               >
-                {status === "sending" ? "Sending..." : status === "sent" ? "Message Sent ✓" : "Send Message"}
+                {status === "sending" ? "Sending..." : status === "sent" ? "Message Sent ✓" : "Send Message →"}
               </button>
+              {status === "sent" && (
+                <div style={{ background: "#f0faf4", border: "1.5px solid #48bb78", borderRadius: "6px", padding: "18px 20px", textAlign: "center", marginTop: "4px" }}>
+                  <p style={{ color: "#276749", fontSize: "15px", fontWeight: 600, margin: 0 }}>
+                    Thanks for submitting the information, we will reach out to you soon!
+                  </p>
+                </div>
+              )}
               {status === "error" && <p style={{ fontSize: "13px", color: "#e53e3e", textAlign: "center" }}>Something went wrong. Please email info@gccapitalholdings.com directly.</p>}
             </form>
           </ScrollReveal>
@@ -105,14 +115,14 @@ export default function Contact() {
               {[
                 { icon: "✉", label: "Email", text: "info@gccapitalholdings.com", href: "mailto:info@gccapitalholdings.com" },
                 { icon: "☎", label: "Phone", text: "+1 (716) 347-4850", href: "tel:+17163474850" },
-                { icon: "◉", label: "Office", text: "Office Address — To Be Added", href: "#" },
+                { icon: "◉", label: "Office", text: "5900 Balcones Dr, Suite 100\nAustin, Texas 78731", href: "https://maps.google.com/?q=5900+Balcones+Dr,+Suite+100,+Austin,+TX+78731" },
                 { icon: "🔗", label: "LinkedIn", text: "G&C Capital Holdings LLC", href: "#" },
               ].map((d) => (
                 <div key={d.label} className="flex items-start gap-3 mb-5">
                   <span style={{ color: "#C4973C", fontSize: "16px", marginTop: "2px", flexShrink: 0 }}>{d.icon}</span>
                   <div>
                     <div style={{ fontSize: "10px", color: "#9AAAC8", textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 600, marginBottom: "3px" }}>{d.label}</div>
-                    <a href={d.href} style={{ fontSize: "14px", color: "#fff", lineHeight: 1.55 }}>{d.text}</a>
+                    <a href={d.href} style={{ fontSize: "14px", color: "#fff", lineHeight: 1.55, whiteSpace: "pre-line" }}>{d.text}</a>
                   </div>
                 </div>
               ))}
