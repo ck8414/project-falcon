@@ -14,7 +14,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center pt-[200px]"
+      className="relative min-h-screen flex flex-col justify-center pt-[80px]"
       style={{ background: "#0B1D51" }}
     >
       {/* Subtle background pattern */}

@@ -35,7 +35,7 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300"
         style={{
           background: NAV_BG,
-          height: "200px",
+          height: "80px",
           boxShadow: scrolled ? "0 2px 24px rgba(0,0,0,0.3)" : "none",
         }}
       >
@@ -44,9 +44,9 @@ export default function Navbar() {
             <Image
               src="/logos/gc-diamond-dark-only.svg"
               alt="G&C Capital Holdings"
-              width={560}
-              height={200}
-              className="h-[180px] w-auto object-contain"
+              width={240}
+              height={86}
+              className="h-[60px] w-auto object-contain"
               priority
             />
           </a>
