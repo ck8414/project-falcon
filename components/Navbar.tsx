@@ -34,13 +34,13 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300"
         style={{
           background: "#142254",
-          height: "80px",
+          height: "120px",
           boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.25)" : "none",
         }}
       >
         <div className="max-w-[1280px] mx-auto px-6 h-full flex items-center justify-between">
           <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
-            <Image src="/logos/gc-logo-dark-only.svg" alt="G&C Capital Holdings" width={280} height={128} className="h-16 w-auto object-contain" priority />
+            <Image src="/logos/gc-logo-dark-only.svg" alt="G&C Capital Holdings" width={360} height={164} className="h-[100px] w-auto object-contain" priority />
           </a>
 
           {/* Desktop nav */}
@@ -84,8 +84,8 @@ export default function Navbar() {
         className={`fixed inset-0 z-50 flex flex-col transition-all duration-300 lg:hidden ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         style={{ background: "#142254" }}
       >
-        <div className="flex items-center justify-between px-6 h-[64px]">
-          <Image src="/logos/gc-logo-dark-only.svg" alt="G&C Capital Holdings" width={220} height={100} className="h-14 w-auto object-contain" />
+        <div className="flex items-center justify-between px-6 h-[80px]">
+          <Image src="/logos/gc-logo-dark-only.svg" alt="G&C Capital Holdings" width={260} height={119} className="h-[60px] w-auto object-contain" />
           <button onClick={() => setOpen(false)} className="text-white p-2" aria-label="Close menu">
             <X size={24} />
           </button>
