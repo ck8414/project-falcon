@@ -40,7 +40,7 @@ export default function Navbar() {
       >
         <div className="max-w-[1280px] mx-auto px-6 h-full flex items-center justify-between">
           <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
-            <Image src="/logos/gc-logo-dark-only.svg" alt="G&C Capital Holdings" width={360} height={164} className="h-[100px] w-auto object-contain" priority />
+            <Image src="/logos/gc-diamond-dark-only.svg" alt="G&C Capital Holdings" width={360} height={164} className="h-[100px] w-auto object-contain" priority />
           </a>
 
           {/* Desktop nav */}
@@ -85,7 +85,7 @@ export default function Navbar() {
         style={{ background: "#142254" }}
       >
         <div className="flex items-center justify-between px-6 h-[80px]">
-          <Image src="/logos/gc-logo-dark-only.svg" alt="G&C Capital Holdings" width={260} height={119} className="h-[60px] w-auto object-contain" />
+          <Image src="/logos/gc-diamond-dark-only.svg" alt="G&C Capital Holdings" width={260} height={119} className="h-[60px] w-auto object-contain" />
           <button onClick={() => setOpen(false)} className="text-white p-2" aria-label="Close menu">
             <X size={24} />
           </button>

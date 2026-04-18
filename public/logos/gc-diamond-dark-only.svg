@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="740" height="266" viewBox="0 0 740 266" xmlns="http://www.w3.org/2000/svg">
+
+  <rect x="0" y="0" width="740" height="266" fill="#0B1D51"/>
+
+  <!-- Diamond mark centered at (118, 128) -->
+  <polygon points="118,28 218,128 118,228 18,128" fill="#121E50"/>
+  <polygon points="118,28 218,128 118,228 18,128" fill="none" stroke="#C9A84C" stroke-width="2.2"/>
+  <polygon points="118,42 204,128 118,214 32,128" fill="none" stroke="#C9A84C" stroke-width="1.4"/>
+  <polygon points="118,52 194,128 118,204 42,128" fill="none" stroke="#C9A84C" stroke-width="0.7" opacity="0.4"/>
+
+  <!-- GC monogram -->
+  <text x="118" y="128"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="38" font-weight="700"
+    fill="#C9A84C" text-anchor="middle" dominant-baseline="central">GC</text>
+
+  <!-- Vertical divider -->
+  <line x1="253" y1="40" x2="253" y2="216" stroke="#1A2D60" stroke-width="1.5"/>
+
+  <!-- G&C wordmark -->
+  <text x="280" y="150"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="80" font-weight="700" fill="#FFFFFF">G</text>
+  <text x="341" y="147"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="70" font-weight="400" fill="#C9A84C">&amp;</text>
+  <text x="396" y="150"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="80" font-weight="700" fill="#FFFFFF">C</text>
+
+  <!-- Gold rule -->
+  <rect x="280" y="163" width="432" height="2.8" fill="#C9A84C" rx="1.4"/>
+
+  <!-- CAPITAL -->
+  <text x="284" y="200"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="21" font-weight="400" fill="#FFFFFF" letter-spacing="14">CAPITAL</text>
+
+  <!-- HOLDINGS LLC -->
+  <text x="286" y="228"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="11" font-weight="400" fill="#8AABCC" letter-spacing="6">HOLDINGS LLC</text>
+
+</svg>

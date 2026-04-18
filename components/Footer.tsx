@@ -21,7 +21,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Image src="/logos/gc-logo-dark-only.svg" alt="G&C Capital Holdings" width={240} height={110} className="h-16 w-auto object-contain mb-4" />
+            <Image src="/logos/gc-diamond-dark-only.svg" alt="G&C Capital Holdings" width={240} height={110} className="h-16 w-auto object-contain mb-4" />
             <p className="text-sm italic" style={{ color: "rgba(255,255,255,0.45)" }}>
               Purpose-built for Healthcare&apos;s Financial Engine.
             </p>
