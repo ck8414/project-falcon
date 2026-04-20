@@ -2,7 +2,7 @@
 
 Institutional-grade website for **G&C Capital Holdings LLC**, a specialized investment and advisory firm focused on the Revenue Cycle Management (RCM) ecosystem.
 
-**Live (local):** http://localhost:3000  
+**Live (Prod):** gccapitalholdings.com
 **Repository:** https://github.com/ck8414/project-falcon
 
 ---
