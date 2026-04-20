@@ -9,6 +9,15 @@ export default function Contact() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) =>
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
+  const handlePhone = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const digits = e.target.value.replace(/\D/g, "").slice(0, 10);
+    let formatted = digits;
+    if (digits.length >= 7) formatted = `(${digits.slice(0,3)})${digits.slice(3,6)}-${digits.slice(6)}`;
+    else if (digits.length >= 4) formatted = `(${digits.slice(0,3)})${digits.slice(3)}`;
+    else if (digits.length >= 1) formatted = `(${digits}`;
+    setForm(prev => ({ ...prev, phone: formatted }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
@@ -73,7 +82,7 @@ export default function Contact() {
               </div>
               <div className="flex flex-col gap-2">
                 <label style={{ fontSize: "12px", fontWeight: 700, color: "#142254", letterSpacing: "0.06em", textTransform: "uppercase" }}>Phone (Optional)</label>
-                <input name="phone" value={form.phone} onChange={handleChange} placeholder="+1 (___) ___-____" style={inp} onFocus={(e) => (e.target.style.borderColor = "#C4973C")} onBlur={(e) => (e.target.style.borderColor = "#DDE2EF")} />
+                <input name="phone" value={form.phone} onChange={handlePhone} placeholder="(___) ___-____" maxLength={14} inputMode="numeric" style={inp} onFocus={(e) => (e.target.style.borderColor = "#C4973C")} onBlur={(e) => (e.target.style.borderColor = "#DDE2EF")} />
               </div>
               <div className="flex flex-col gap-2">
                 <label style={{ fontSize: "12px", fontWeight: 700, color: "#142254", letterSpacing: "0.06em", textTransform: "uppercase" }}>Inquiry Type *</label>
