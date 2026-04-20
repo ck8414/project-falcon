@@ -5,14 +5,14 @@ const leaders = [
   {
     initials: "GS",
     name: "Gautam Srivastava",
-    title: "Co-Founder & Managing Partner",
-    bio: "Gautam Srivastava brings over two decades of experience at the intersection of healthcare operations, financial services, and enterprise transformation — having led large-scale programs at Optum, Deloitte, and TCS for some of the most complex payer and provider organizations in the country. As a Director-level executive, he has overseen $100M+ digital and operational transformation engagements for Fortune 100 clients, with deep hands-on expertise spanning the full revenue cycle: claims, payer adjudication, denial management, prior authorization, and billing lifecycle operations. At G&C Capital, Gautam leads investment strategy, deal origination and evaluation, and portfolio operations — applying a rare combination of RCM domain depth, financial modeling discipline, and operational credibility that few capital providers in this space can match.",
+    title: "Co-Founder / Managing Partner",
+    bio: "Gautam brings over a decade of experience at the intersection of healthcare operations and investment strategy, with deep expertise across revenue cycle management, health system finance, and enterprise technology. At G&C Capital, he leads investment origination, portfolio strategy, and firm operations.",
   },
   {
     initials: "CK",
     name: "Chaithra Kumar",
-    title: "Co-Founder & Managing Partner",
-    bio: "Chaithra Kumar is a seasoned technology executive and capital allocator whose career spans some of the most operationally demanding enterprises in the world — Apple, Southwest Airlines, and Kohl's — where he drove enterprise technology strategy across large-scale, complex organizations. A disciplined real estate investor with more than 600 units acquired, managed, and optimized across his portfolio, he brings a demonstrated track record of deploying capital intelligently and creating value through rigorous post-close execution. At G&C Capital, Chaithra leads deal structuring, capital strategy, and M&A execution — combining a Silicon Valley-caliber technology lens with the instincts of a proven investor to drive diligence, integration, and long-term performance across the firm's RCM acquisition portfolio.",
+    title: "Co-Founder / Managing Partner",
+    bio: "Chaithra combines deep technical expertise in healthcare technology with a sharp commercial lens developed across enterprise software and digital health ventures. At G&C Capital, she leads technology diligence, strategic partnership development, and the firm's thought leadership efforts.",
   },
 ];
 
@@ -21,8 +21,8 @@ export default function Leadership() {
     <section id="leadership" style={{ background: "#F2F4F8", padding: "100px 0" }}>
       <div className="max-w-[1200px] mx-auto px-12">
         <ScrollReveal>
-          <div className="max-w-[700px] mx-auto text-center mb-14">
-            <div className="flex items-center justify-center gap-2 mb-5" style={{ fontFamily: "var(--font-inter)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#C4973C" }}>
+          <div className="max-w-[600px] mb-14">
+            <div className="flex items-center gap-2 mb-5" style={{ fontFamily: "var(--font-inter)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#C4973C" }}>
               <span style={{ fontSize: "8px" }}>◆</span> The Team <span style={{ fontSize: "8px" }}>◆</span>
             </div>
             <h2 className="font-bold mb-5" style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontSize: "clamp(30px, 3.5vw, 46px)", fontWeight: 800, color: "#142254", lineHeight: 1.15, letterSpacing: "-0.02em" }}>
@@ -32,7 +32,7 @@ export default function Leadership() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 max-w-3xl">
           {leaders.map((l, i) => (
             <ScrollReveal key={l.name} delay={0.1 * i}>
               <div
@@ -46,7 +46,7 @@ export default function Leadership() {
                 </div>
                 <div className="font-bold mb-1" style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontSize: "20px", color: "#142254" }}>{l.name}</div>
                 <div className="mb-3" style={{ fontSize: "12px", color: "#C4973C", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>{l.title}</div>
-                <p className="text-left" style={{ fontSize: "13px", color: "#6B7A99", lineHeight: 1.75 }}>{l.bio}</p>
+                <p style={{ fontSize: "13px", color: "#6B7A99", lineHeight: 1.65 }}>{l.bio}</p>
                 <a href="#" className="inline-flex items-center gap-1.5 mt-4" style={{ fontSize: "12px", color: "#142254", fontWeight: 600, transition: "color 0.2s" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#C4973C")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#142254")}
