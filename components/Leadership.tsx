@@ -47,12 +47,6 @@ export default function Leadership() {
                 <div className="font-bold mb-1" style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontSize: "20px", color: "#142254" }}>{l.name}</div>
                 <div className="mb-3" style={{ fontSize: "12px", color: "#C4973C", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>{l.title}</div>
                 <p className="text-left" style={{ fontSize: "14px", color: "#6B7A99", lineHeight: 1.8 }}>{l.bio}</p>
-                <a href="#" className="inline-flex items-center gap-1.5 mt-4" style={{ fontSize: "12px", color: "#142254", fontWeight: 600, transition: "color 0.2s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#C4973C")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "#142254")}
-                >
-                  🔗 LinkedIn Profile
-                </a>
               </div>
             </ScrollReveal>
           ))}
