@@ -119,9 +119,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               const lines = trimmed.split("\n");
               if (lines.length > 0 && lines.every(l => l.startsWith("- "))) {
                 return (
-                  <ul key={i} style={{ paddingLeft: "24px", marginBottom: "22px" }}>
+                  <ul key={i} style={{ paddingLeft: "28px", marginBottom: "22px", listStyleType: "disc" }}>
                     {lines.map((l, j) => (
-                      <li key={j} style={{ fontSize: "17px", lineHeight: 1.85, color: "#374151", marginBottom: "8px" }}>
+                      <li key={j} style={{ fontSize: "17px", lineHeight: 1.85, color: "#374151", marginBottom: "10px", paddingLeft: "4px" }}>
                         {renderInline(l.slice(2), `li${i}-${j}`)}
                       </li>
                     ))}
