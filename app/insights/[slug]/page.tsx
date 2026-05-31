@@ -76,28 +76,66 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           </p>
 
           {/* Article content */}
-          {article.content.trim().split("\n\n").map((block, i) => {
-            if (block.startsWith("## ")) {
-              return (
-                <h2 key={i} style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontSize: "clamp(22px, 2.5vw, 28px)", fontWeight: 800, color: "#142254", marginTop: "56px", marginBottom: "18px", lineHeight: 1.2, letterSpacing: "-0.01em" }}>
-                  {block.replace("## ", "")}
-                </h2>
-              );
+          {(() => {
+            function renderInline(text: string, keyPrefix: string): React.ReactNode[] {
+              const nodes: React.ReactNode[] = [];
+              const regex = /\*\*\*(.*?)\*\*\*|\*\*(.*?)\*\*|\*(.*?)\*/g;
+              let last = 0;
+              let m: RegExpExecArray | null;
+              let idx = 0;
+              while ((m = regex.exec(text)) !== null) {
+                if (m.index > last) nodes.push(text.slice(last, m.index));
+                if (m[1] !== undefined)
+                  nodes.push(<em key={`${keyPrefix}-${idx++}`}><strong style={{ color: "#142254" }}>{m[1]}</strong></em>);
+                else if (m[2] !== undefined)
+                  nodes.push(<strong key={`${keyPrefix}-${idx++}`} style={{ color: "#142254", fontWeight: 700 }}>{m[2]}</strong>);
+                else if (m[3] !== undefined)
+                  nodes.push(<em key={`${keyPrefix}-${idx++}`}>{m[3]}</em>);
+                last = regex.lastIndex;
+              }
+              if (last < text.length) nodes.push(text.slice(last));
+              return nodes;
             }
-            if (block.includes("**")) {
-              const parts = block.split(/\*\*(.*?)\*\*/g);
+
+            return article.content.trim().split("\n\n").map((block, i) => {
+              const trimmed = block.trim();
+
+              if (trimmed.startsWith("## ")) {
+                return (
+                  <h2 key={i} style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontSize: "clamp(22px, 2.5vw, 28px)", fontWeight: 800, color: "#142254", marginTop: "56px", marginBottom: "18px", lineHeight: 1.2, letterSpacing: "-0.01em" }}>
+                    {trimmed.slice(3)}
+                  </h2>
+                );
+              }
+
+              if (trimmed.startsWith("***") && trimmed.endsWith("***") && trimmed.length > 6) {
+                return (
+                  <blockquote key={i} style={{ borderLeft: "3px solid #C4973C", padding: "16px 24px", margin: "32px 0", fontStyle: "italic", fontSize: "17px", color: "#142254", fontWeight: 600, lineHeight: 1.8, background: "rgba(196,151,60,0.06)", borderRadius: "0 4px 4px 0" }}>
+                    {renderInline(trimmed.slice(3, -3), `q${i}`)}
+                  </blockquote>
+                );
+              }
+
+              const lines = trimmed.split("\n");
+              if (lines.length > 0 && lines.every(l => l.startsWith("- "))) {
+                return (
+                  <ul key={i} style={{ paddingLeft: "24px", marginBottom: "22px" }}>
+                    {lines.map((l, j) => (
+                      <li key={j} style={{ fontSize: "17px", lineHeight: 1.85, color: "#374151", marginBottom: "8px" }}>
+                        {renderInline(l.slice(2), `li${i}-${j}`)}
+                      </li>
+                    ))}
+                  </ul>
+                );
+              }
+
               return (
                 <p key={i} style={{ fontSize: "17px", lineHeight: 1.85, color: "#374151", marginBottom: "22px" }}>
-                  {parts.map((part, j) =>
-                    j % 2 === 1
-                      ? <strong key={j} style={{ color: "#142254", fontWeight: 700 }}>{part}</strong>
-                      : part
-                  )}
+                  {renderInline(trimmed, `p${i}`)}
                 </p>
               );
-            }
-            return <p key={i} style={{ fontSize: "17px", lineHeight: 1.85, color: "#374151", marginBottom: "22px" }}>{block}</p>;
-          })}
+            });
+          })()}
 
           {/* Gold divider */}
           <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, #D4C08A, transparent)", margin: "64px 0 48px" }} />
